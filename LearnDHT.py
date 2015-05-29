@@ -14,6 +14,9 @@ class DHT(object):
 	"""docstring for LearnDHT"""
 	def __init__(self):
 		self.ufd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+	def close(self):
+		self.ufd.close()
 	
 	def random_id(self):
 		hash = sha1()
@@ -54,9 +57,13 @@ class DHT(object):
 if __name__ == "__main__":
 	dht = DHT()
 	nid = dht.random_id()
+	# dht.ping(("127.0.0.1", 6881), nid)
+	# dht.ping(("router.bittorrent.com", 6881), nid)
+	# dht.ping(("dht.transmissionbt.com", 6881), nid)
+	# dht.ping(("router.utorrent.com", 6881), nid)
 	dht.ping(("router.bittorrent.com", 6881), nid)
-	# dht.ping(("127.0.0.1", 5166), nid)
 	sleep(1)
 	print dht.recv_krpc()
+	dht.close()
 
 	raw_input()
