@@ -169,8 +169,8 @@ def randomID():
 
 
 if __name__ == "__main__":
+	#bin(int('30aca5312a73e74abfdf422ba701064c73a75d63', 16))        # 把nodeID转化为二进制
 	nodeID = "30aca5312a73e74abfdf422ba701064c73a75d63"
-	#nodeID = "c09bd1affc4e9b18e176d9818144a4be2f4e8be5"
 	#nodeID = randomID()
 
 	print "My nodeID : %s\n" % nodeID
